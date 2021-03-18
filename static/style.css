@@ -1,0 +1,251 @@
+body {
+	text-align: center;
+	background-image: url("/static/images/mosters.png");
+}
+
+.header {
+	display: flex;
+    height: 40px;
+	background-color: #debd10;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    max-width: 800px;
+    border: 4px solid black;
+	border-radius: 100px;
+	justify-content:space-between;
+	align-items: center;
+	font-weight: bold;
+
+}
+.move_count {
+	margin-top: 10px;
+	margin-left: 30px;
+	font-family: Navilu;
+}
+
+.timer {
+	margin-top: 10px;
+	font-family: Navilu;
+}
+
+.restart {
+	font-size: 20px;
+	text-align: center;
+	color: #fff;
+	background-color: #4CAF50;
+	border-radius: 15px;
+	margin-right: 30px;
+}
+.restart:hover {background-color: #3e8e41}
+
+.restart:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.main-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    border: 5px solid black;
+    border-radius: 15px;
+    margin: auto;
+    background-color: #a7a72f;
+    max-width: 800px;
+    max-height: 1000px;
+}
+
+
+.card {
+    padding: 10px;
+    width: 160px;
+    height: 160px;
+    background-color : green;
+    border: 5px solid black;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+
+.opened {
+	background-color: #8b5512;
+	border-color: darkslategrey;
+	animation-name: openCards;
+	animation-duration: .75s;
+}
+
+
+.matchedCard {
+	background-color: #2f73b8;
+	border-color: darkolivegreen;
+	animation-name: matchedCard;
+	animation-duration: .75s;
+}
+
+
+.unmatchedCard {
+	animation-name: unmatchedCard;
+	animation-duration: .75s;
+}
+
+
+.card > img {
+    display: block;
+    width: 160px;
+}
+
+img.hidden {
+    visibility: hidden;
+}
+
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #4e762b;
+	border-radius: 5px;
+	width: 60%;
+	position: relative;
+	transition: all 5s ease-in-out;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.popup h2 {
+	text-align: center;
+	font-size: 3em;
+	margin-top: 0;
+	color: #333;
+	font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.popup .close:hover {
+	color: #E5F720;
+}
+
+.popup .content-1,
+.content-2, .content-3 {
+	max-height: 30%;
+	overflow: auto;
+	text-align: center;
+	font-size: 20px;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 100 !important;
+}
+
+
+#play-again {
+	background-color: #141214;
+	padding: 0.7rem 1rem;
+	font-size: 1.1rem;
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	font-family: 'Gloria Hallelujah', cursive;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+
+@keyframes openCards {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
+
+@keyframes unmatchedCard {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, .95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes matchedCard {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}

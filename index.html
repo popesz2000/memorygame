@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascript Game</title>
+    <meta charset="UTF-8">
+    <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <script src="./game.js" defer></script>
+
+</head>
+<body>
+
+    <div class="header">
+        <div class="move_count">0 Moves</div>
+        <div class="timer">0 Minutes 0 Seconds</div>
+        <button class="restart" onclick="restartGame()">Restart</button>
+    </div>
+
+<br>
+    <div class="main-board">
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+        <div class="card"><img class="hidden" src="" alt="pic"/></div>
+    </div>
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Congratulations</h2>
+            <a class="close" href="#">×</a>
+            <div class="content-1">
+                Congratulations you're a winner
+            </div>
+            <div class="content-2">
+                <p>You made <span id="finalMove"> </span></p>
+                <p>in <span id="totalTime"> </span> </p>
+            </div>
+            <h1>Highscore:</h1>
+            <div class="content-3">
+                <p><span id="highscore"></span></p>
+            </div>
+            <button id="play-again" onclick="playAgain()">
+                Play again 😄
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
